@@ -48,4 +48,4 @@ interface CmsConnector {
   [key: string]: any;
 }
 
-export { ProjectConfiguration, CmsConnector, CmsResponse, Page, Redirect, PageMeta, ContentElement, IdentifiableObject };
+export type { ProjectConfiguration, CmsConnector, CmsResponse, Page, Redirect, PageMeta, ContentElement, IdentifiableObject };

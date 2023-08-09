@@ -1,3 +1,5 @@
+import { CmsConnector, CmsResponse, ContentElement, IdentifiableObject, Page, Redirect } from "@/core";
+
 /**
 * The BoxElement is a content element that can be rendered.
 */
@@ -52,4 +54,4 @@ const typo3Connector: CmsConnector = {
 
 
 export default typo3Connector;
-export { GridElement, LoopElement, BoxElement };
+export type { GridElement, LoopElement, BoxElement };
