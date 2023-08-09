@@ -23,6 +23,7 @@
     "jsx": "preserve",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
+    "tsBuildInfoFile": "dist/.tsbuildinfo",
     "paths": {
       "@/*": [
         "./*"
