@@ -1,12 +1,10 @@
 /**
-* Holds the central configuration of your project.
-*/
+ * Holds the central configuration of your project.
+ */
 interface ProjectConfiguration {
   name: string;
   cmsConnector: CmsConnector;
   cmsPath: string;
-
-  [key: string]: any;
 }
 
 interface IdentifiableObject {
@@ -14,40 +12,33 @@ interface IdentifiableObject {
 }
 
 /**
-* The PageMeta holds metainformation about the page.
-* For example, this can be used to hold properties relevant for SEO.
-*/
+ * The PageMeta holds metainformation about the page.
+ * For example, this can be used to hold properties relevant for SEO.
+ */
 interface PageMeta {
   title?: string;
   description?: string;
-  keywords?: string[];
-  image?: string;
-  url?: string;
-
-  [key: string]: any;
 }
 
 /**
-* The content you see on a page is made up so called 'content elements'.
-* A section, a hero image, a text block are all content elements.
-*/
+ * The content you see on a website is made up of so called 'content elements'.
+ * They are the smallest building blocks of a page.
+ * A section, a hero image, a text block are all content elements.
+ */
 interface ContentElement extends IdentifiableObject {
   name: string;
   type: string;
-  content?: { [key: string]: any };
-
-  [key: string]: any;
+  content?: { [key: string]: unknown };
 }
 
-/**
-* A page is the main building block of a website.
-* Each page can contain content elements.
-*/
-interface Page extends IdentifiableObject {
-  meta?: PageMeta;
-  content?: ContentElement[];
+interface PageLayout extends IdentifiableObject {
+  name: string;
+}
 
-  [key: string]: any;
+interface Page extends IdentifiableObject {
+  layout: PageLayout;
+  meta: PageMeta;
+  content: ContentElement[];
 }
 
 interface Redirect extends IdentifiableObject {
@@ -58,13 +49,20 @@ interface Redirect extends IdentifiableObject {
 type CmsResponse = Page | Redirect;
 
 /**
-* A CmsConnector is a connector to a content management system (CMS).
-* It is used to request data the CMS.
-*/
+ * A CmsConnector is a connector to a content management system (CMS).
+ * It is used to request data the CMS.
+ */
 interface CmsConnector {
   requestPage(path?: string, cmsPath?: string): Promise<Page | Redirect>;
-
-  [key: string]: any;
 }
 
-export type { ProjectConfiguration, CmsConnector, CmsResponse, Page, Redirect, PageMeta, ContentElement, IdentifiableObject };
+export type {
+  ProjectConfiguration,
+  CmsConnector,
+  CmsResponse,
+  Page,
+  Redirect,
+  PageMeta,
+  ContentElement,
+  IdentifiableObject,
+};

@@ -1,2 +1,2 @@
-export * from '@/core';
-export * from '@/connectors/typo3';
+export * from "@/core";
+export * from "@/connectors/typo3";
