@@ -3,7 +3,7 @@ import {
   type CmsResponse,
   type ContentElement,
   type IdentifiableObject,
-} from "@/core";
+} from "@/index";
 
 /**
  * The BoxElement is akin to a content element.

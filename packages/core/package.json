@@ -1,7 +1,6 @@
 {
   "name": "open-headless",
   "version": "0.0.1",
-  "description": "",
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch",
@@ -24,11 +23,25 @@
       "esm"
     ]
   },
-  "keywords": [],
   "author": "Tim Ritter <t-ritter-mail@web.de>",
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./connectors": {
+      "types": "./dist/connectors/index.d.ts",
+      "import": "./dist/connectors/index.mjs",
+      "module": "./dist/connectors/index.mjs",
+      "require": "./dist/connectors/index.js"
+    }
+  },
   "devDependencies": {
     "@types/eslint": "^8.44.2",
     "@types/node": "^20.4.9",
