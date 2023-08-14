@@ -1,4 +1,5 @@
 import {
+  type ProjectConfiguration,
   type CmsConnector,
   type CmsResponse,
   type ContentElement,
@@ -35,10 +36,10 @@ interface GridElement extends IdentifiableObject {
  * More information about TYPO3 can be found at https://typo3.org
  */
 class Typo3Connector implements CmsConnector {
-  constructor(private cmsPath: string) { }
+  constructor(private projectConfiguration: ProjectConfiguration) { }
 
   async requestPage(path: string): Promise<CmsResponse> {
-    const requestUrl = new URL(path, this.cmsPath);
+    const requestUrl = new URL(path, this.projectConfiguration.cmsPath);
     const response = await fetch(requestUrl.toString());
 
     if (!response.ok) {
@@ -60,4 +61,4 @@ class Typo3Connector implements CmsConnector {
 }
 
 export type { GridElement, LoopElement, BoxElement };
-export { Typo3Connector }
+export { Typo3Connector };

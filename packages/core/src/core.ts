@@ -3,7 +3,7 @@
  */
 interface ProjectConfiguration {
   name: string;
-  cmsConnector: CmsConnector;
+  cmsPath: string;
 }
 
 interface IdentifiableObject {
