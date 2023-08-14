@@ -31,12 +31,14 @@ interface GridElement extends IdentifiableObject {
 }
 
 /**
- * The typo3Connector is a connector for the CMS TYPO3.
+ * The Typo3Connector is a connector for the CMS TYPO3.
  * More information about TYPO3 can be found at https://typo3.org
  */
-const typo3Connector: CmsConnector = {
-  requestPage: async (path: string, cmsPath: string) => {
-    const requestUrl = new URL(path, cmsPath);
+class Typo3Connector implements CmsConnector {
+  constructor(private cmsPath: string) { }
+
+  async requestPage(path: string): Promise<CmsResponse> {
+    const requestUrl = new URL(path, this.cmsPath);
     const response = await fetch(requestUrl.toString());
 
     if (!response.ok) {
@@ -54,8 +56,8 @@ const typo3Connector: CmsConnector = {
     } else {
       return cmsResponse;
     }
-  },
-};
+  }
+}
 
-export default typo3Connector;
 export type { GridElement, LoopElement, BoxElement };
+export { Typo3Connector }
