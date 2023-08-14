@@ -13,6 +13,10 @@ importers:
         version: 1.10.12
 
   examples/simple:
+    dependencies:
+      open-headless:
+        specifier: workspace:^
+        version: link:../../packages/core
     devDependencies:
       '@types/node':
         specifier: ^20.5.0

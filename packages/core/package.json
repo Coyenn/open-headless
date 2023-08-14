@@ -1,6 +1,6 @@
 {
   "name": "open-headless",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -35,12 +35,6 @@
       "import": "./dist/index.mjs",
       "module": "./dist/index.mjs",
       "require": "./dist/index.js"
-    },
-    "./connectors": {
-      "types": "./dist/connectors/index.d.ts",
-      "import": "./dist/connectors/index.mjs",
-      "module": "./dist/connectors/index.mjs",
-      "require": "./dist/connectors/index.js"
     }
   },
   "files": [
