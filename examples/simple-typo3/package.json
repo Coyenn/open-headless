@@ -14,6 +14,6 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "open-headless": "workspace:0.0.5"
+    "open-headless": "workspace:latest"
   }
 }
