@@ -52,11 +52,7 @@ class Typo3Connector implements CmsConnector {
       throw new Error(`Invalid response from ${requestUrl.toString()}`);
     }
 
-    if ("target" in cmsResponse) {
-      return cmsResponse;
-    } else {
-      return cmsResponse;
-    }
+    return cmsResponse;
   }
 }
 

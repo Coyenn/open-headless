@@ -6,20 +6,14 @@ const projectConfig: ProjectConfiguration = {
 };
 const projectConnector = new Typo3Connector(projectConfig);
 
-const processRequest = async (path: string) => {
-  projectConnector.requestPage(path)
-    .then((response) => {
-      if (response) {
-        if ('layout' in response) {
-          console.log("Got a page response:", response);
-        } else {
-          console.log("Got a redirect response:", response);
-        }
-      } else {
-        throw new Error(`Invalid response. Expected a page or redirect, got ${response}`);
-      }
-    });
+const main = async () => {
+  const response = await projectConnector.requestPage("/my-page");
+
+  if ('layout' in response) {
+    console.log("Got a page response:", response);
+  } else {
+    console.log("Got a redirect response:", response);
+  }
 };
 
-// This can be called whenever a route is requested.
-processRequest("/my-page");
+main();
